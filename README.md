@@ -41,8 +41,8 @@ Before running this application, make sure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Kh-Ashraf-Dev/-coffee-shop-backend.git
-cd -coffee-shop-backend
+git clone https://github.com/Kh-Ashraf-Dev/Coffee-shop-backend.git
+cd Coffee-shop-backend
 ```
 
 ### 2. Start the Database
