@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: coffee-shop-postgres
+    environment:
+      POSTGRES_DB: coffee_shop_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - coffee-shop-network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: coffee-shop-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@coffeeshop.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - coffee-shop-network
+
+volumes:
+  postgres-data:
+
+networks:
+  coffee-shop-network:
+    driver: bridge
